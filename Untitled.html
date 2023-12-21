@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABC English Medium School</title>
+  <style>
+    nav {
+      text-align: center;
+    }
+
+    nav a {
+      font-weight: bold;
+    }
+
+    main {
+      padding: 20px;
+      text-align: center;
+    }
+
+    section {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<section id="principal-interface">
+  <h2>Teachers Please Check Your Duty Here</h2>
+  <p>This section is only accessible for teachers. Please Enter Teacher Email Address Below To Access The Content.</p>
+  <input type="text" id="principal-email" placeholder="Enter your email">
+  <button onclick="checkEmail()">Check Duties</button>
+  <p id="principal-content" style="display: none;">Click Here To View Duty Allotment.</p>
+  <a id="sheet-link" style="display: none;" onclick="showSheet()">Click here to view the Google Sheet</a>
+</section>
+
+<iframe id="principal-sheet" src="" style="display: none; width: 100%; height: 400px;"></iframe>
+
+<script>
+  function checkEmail() {
+    const enteredEmail = document.getElementById('principal-email').value.toLowerCase();
+    const validEmail = 'muhammedanasmk123@gmail.com';
+
+    if (enteredEmail === validEmail) {
+      document.getElementById('principal-content').style.display = 'block';
+      document.getElementById('sheet-link').style.display = 'block';
+    } else {
+      alert('Access denied. Invalid email.');
+    }
+  }
+
+  function showSheet() {
+    const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTuy5MiRmCHEMJLs9J0CGw_wzPfc3H78_cZyWEooaQ2l1qkd9xhguBTxuh1R-0bPZI5aGSJ9UyBi45U/pubhtml?gid=0&single=true';
+    document.getElementById('principal-sheet').src = sheetUrl;
+    document.getElementById('principal-sheet').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
